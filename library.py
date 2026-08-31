@@ -99,13 +99,18 @@ def edit_book():
 
     book = books[book_number - 1]
 
-    new_title = input("New title: ")
-    new_author = input("New author: ")
-    new_status = input("New status (reading/finished): ")
+    new_title = input("New title (press Enter to keep current): ")
+    new_author = input("New author (press Enter to keep current): ")
+    new_status = input("New status (reading/finished, press Enter to keep current): ")
 
-    book["title"] = new_title
-    book["author"] = new_author
-    book["status"] = new_status
+    if new_title != "":
+        book["title"] = new_title
+
+    if new_author != "":
+        book["author"] = new_author
+
+    if new_status != "":
+        book["status"] = new_status
 
     save_books(books)
 
